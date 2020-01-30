@@ -1,0 +1,12 @@
+<label class="container">
+    <input id="checkBox" type="checkbox" (click)="onClick()" [checked]="check">
+    <div class="checkmark" >
+      <svg class="svg-style" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 137.493 134.557">
+        <path d="M126.846 10.432L44.553 123.68l-33.91-45.215-.21.16 34.124 45.5 82.504-113.537z"
+          color="#000" font-weight="400" font-family="sans-serif" overflow="visible"
+          stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <img *ngIf="imageUrl" class="icon" [src]="imageUrl"/>
+    <span>{{label}}</span>
+</label>

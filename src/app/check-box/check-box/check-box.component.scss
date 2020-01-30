@@ -1,0 +1,85 @@
+/* The container */
+/* Hide the browser's default checkbox */
+/* Create a custom checkbox */
+/* On mouse-over, add a grey background color */
+/* When the checkbox is checked, add a blue background */
+/* Show the checkmark when checked */
+.container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 16px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	color: gray;
+
+	.icon {
+		margin-right: 5px;
+		margin-left: 5px;
+	}
+
+  span {
+    margin-left: 10px;
+  }
+	
+	.checkmark {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 14px;
+		height: 14px;
+		background-color: transparent;
+		border: 1px solid #969696;
+
+		.svg-style {
+			stroke: "#fffff";
+			display: none;
+			width: 8px;
+			height: 8px;
+			path { 
+				stroke: #ffffff;
+			}
+		} 
+	}
+
+	input {
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+		&:checked {
+			~ {
+				.checkmark {
+					background-color: #007aff;
+					border: 1px solid #007aff;
+
+					.svg-style {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+
+	&:hover {
+		input {
+      &:not(:checked) {
+        ~ {
+          .checkmark {          
+            background-color: rgba($color: #007aff, $alpha: 0.4);          
+          }
+        }
+      }
+		}
+	}
+}
+
+
+
+:host-context(.arctic) .container {
+    color: black;
+}

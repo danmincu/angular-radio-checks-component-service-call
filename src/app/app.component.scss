@@ -1,0 +1,78 @@
+p {
+  font-family: monospace;
+}
+.radioMargin {
+  margin-top: 11px;
+}
+
+.line {  
+  border-right: 1px solid black;
+  height: 40px;
+  width: 150px;
+  .arrow-svg
+  {
+    display: none;
+  }
+}
+
+.arrow {   
+  .arrow-svg
+  { 
+    float: right;
+    height:40px;
+    width: 6px;
+  }
+  vertical-align: middle;
+}
+
+.cbactive {
+   background: rgba(176, 179, 171, 0.06);
+}
+
+.side-by-side {
+  display: flex;
+  flex-direction: row;  
+}
+
+.side-content {  
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+}
+
+.detail {
+
+  padding: 10px;
+  min-width: 400px;
+}
+
+.wrapped {
+  margin: 20px;
+  max-width: 500px;
+  white-space: normal;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
+button {
+
+   border: none;
+   background-color: inherit;
+   color: #0b0c0ce8;
+   
+   font-weight: 100;
+
+   font-size: 11px;
+   cursor: pointer;
+   display: inline-block;
+   &:hover {
+     color: black;
+     font-weight: 500;
+     text-decoration: underline;
+   }
+
+   &:disabled {
+      color: #5a5a5a;
+      cursor: default;
+    }
+}

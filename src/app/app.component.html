@@ -1,0 +1,38 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Please note that the checkboxes remember their selection!
+</p>
+<div class="side-by-side">
+  <div class="side-content">
+    <div [ngClass]="{'line': !rb.checked, 'arrow': rb.checked}" *ngFor="let model of checked">
+      <svg class='arrow-svg' xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 29.698 206.176"><path d="M27.699 206.176v-76.218h2v76.218zM0 103.088l28.285-28.285 1.414 1.415-28.284 28.284z" stroke-width="3" stroke="black"/><path d="M1.415 101.674l28.284 28.284-1.414 1.414L0 103.088zM27.699 76.218V0h2v76.218z " stroke-width="3" stroke="black"/></svg>     
+      <div class='radioMargin'>
+          <app-radio-button #rb
+            [label]="model.value.displayNames[0].value"
+            [description]="model.value.description"
+            [value]="model"
+            [(ngModel)] ="selectedTypeConfig"
+            (ngModelChange) = "selectionChanged($event)"></app-radio-button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="side-content detail">
+      <div class="side-content" *ngFor="let model of currentAttributes">
+            <app-check-box 
+            [ngClass]="{'cbactive': model.checked}"
+            [value]="model" [id]="model.id" [label]="model.value.displayNames[0].value" [check]="model.checked" 
+            [imageUrl]="model.imageUrl" (checkChange)="doCheckChange($event)"></app-check-box>   
+      </div>
+      <span>
+        <button (click)="doSelectAll();">Select all</button>
+        <button (click)="doSelectNone();">Select none</button>
+      </span>
+  </div>
+</div>
+
+<h2 *ngIf="refinementSelection" >Service is called with parameters:</h2>
+<div class="wrapped">
+  <label>{{refinementSelection}}</label>
+</div>
+
